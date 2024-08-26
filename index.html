@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CORS POC Generator - A tool to demonstrate CORS vulnerabilities and how they can be exploited. Developed by trhacknon.">
+    <meta name="keywords" content="CORS, vulnerability, POC, security, exploit, trhacknon">
+    <meta property="og:title" content="CORS POC Generator">
+    <meta property="og:description" content="Generate CORS vulnerability proofs of concept using this web script. Learn about CORS vulnerabilities and their exploitation.">
+    <meta property="og:image" content="http://trkn-pocgen.dontkillmyapp.com/logo.svg">
+    <meta property="og:url" content="http://trkn-pocgen.dontkillmyapp.com/">
+    <meta property="og:type" content="website">
     <title>Cors Exploit</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -92,12 +99,23 @@
             <div class="col-sm-4"></div>
         </div>
         <div class="text-center text-muted">
-            <p>Enter a URL and click generate. If you see an alert with JSON data, then it's exploitable!! Enjoy :)</p>
+            <h2>What is a CORS Vulnerability?</h2>
+            <p>CORS (Cross-Origin Resource Sharing) vulnerabilities occur when a web application allows unauthorized domains to access its resources. This can happen when a server does not correctly validate the origin of a request, allowing attackers to steal data or perform actions on behalf of users.</p>
+            <h3>How to Exploit</h3>
+            <p>To exploit a CORS vulnerability, an attacker can use a malicious site to make requests to a target application. If the target application does not properly restrict or validate the origins allowed, the attacker can access sensitive data or perform actions that they should not be able to.</p>
+            <h3>Common Uses by Hackers</h3>
+            <p>Hackers commonly use CORS vulnerabilities to:</p>
+            <ul>
+                <li>Steal sensitive user information, such as authentication tokens or personal data.</li>
+                <li>Perform unauthorized actions on behalf of the user.</li>
+                <li>Gain access to private APIs or internal resources that are not properly secured.</li>
+            </ul>
+            <p>Understanding and securing CORS configurations is crucial for protecting web applications from these kinds of attacks.</p>
         </div>
     </div>
     <footer class="page-footer font-small">
         <div class="footer-copyright">
-            <p>Developed by <strong>trhacknon</strong></p>
+            <p>Developed by <strong style="color: #00FF00;">trhacknon</strong></p>
             <a href="http://trkn-pocgen.dontkillmyapp.com/" style="color: #FF6600;">We Are Anonymous</a>
         </div>
     </footer>
