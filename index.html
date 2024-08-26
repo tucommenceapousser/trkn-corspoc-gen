@@ -15,6 +15,8 @@
             background-color: #000; /* Black background for hacker feel */
             color: #00FF00; /* Fluorescent green text */
             font-family: 'Courier New', Courier, monospace; /* Monospace font for hacker style */
+            margin: 0;
+            padding: 0;
         }
         .jumbotron {
             background-color: #002b36; /* Dark teal background */
@@ -23,6 +25,11 @@
             padding: 2rem;
             margin-bottom: 0;
             animation: pulse 2s infinite;
+        }
+        .logo {
+            width: 150px; /* Adjust as needed */
+            margin: 0 auto;
+            display: block;
         }
         .container {
             margin-top: 2rem;
@@ -40,9 +47,10 @@
             background-color: #002b36; /* Dark teal footer */
             color: #FF6600; /* Fluorescent orange text */
             padding: 1rem;
+            text-align: center;
         }
         .text-muted {
-            color: #FF0000; /* Fluorescent orange for muted text */
+            color: #FF0000; /* Fluorescent red for muted text */
         }
         .form-control {
             background-color: #003333; /* Dark background for input fields */
@@ -54,26 +62,16 @@
             border-color: #00CC00; /* Darker green border on focus */
             color: #00FF00; /* Fluorescent green text on focus */
         }
-        .logo {
-            width: 150px; /* Adjust as needed */
-            margin: 0 auto;
-            display: block;
-            animation: rotate 5s linear infinite; /* Rotate animation */
-        }
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body>
     <div class="jumbotron text-center">
-        <img src="logo.svg" alt="Logo" class="logo"> <!-- Logo animation -->
+        <img src="logo.svg" alt="Logo" class="logo"> <!-- Logo animated -->
         <h1>CORS POC Generator</h1>
         <p>Generate CORS Vulnerability POC using this web script</p>
     </div>
@@ -98,9 +96,9 @@
         </div>
     </div>
     <footer class="page-footer font-small">
-        <div class="footer-copyright text-center py-3">© GNU General Public License v3.0:
-            <p>Developed by <div class="text-center text-muted"><strong>trhacknon</strong></div></p>
-            <a href="http://trkn-pocgen.dontkillmyapp.com/" style="color: #FF6600;"> we are anonymous</a>
+        <div class="footer-copyright">
+            <p>Developed by <strong>trhacknon</strong></p>
+            <a href="http://trkn-pocgen.dontkillmyapp.com/" style="color: #FF6600;">We Are Anonymous</a>
         </div>
     </footer>
     <script type="text/javascript">
