@@ -12,4 +12,4 @@ Enter a URL and Click Generate if you See Alert With JSON data then its exploita
 # installation
 Clone Repo and Run index file that it!
 
-or generate live: https://vral-parmar.github.io/CORS-POC-Generator/
+or generate live: http://trkn-pocgen.dontkillmyapp.com
